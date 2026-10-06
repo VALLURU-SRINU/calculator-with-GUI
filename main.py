@@ -1,0 +1,95 @@
+from tkinter import *
+
+root = Tk()
+root.title("calculator")
+root.geometry("480x450")
+
+equation = StringVar()
+eqStr = ""
+
+def calculator(event):
+    global eqStr
+    char = event.widget.cget("text")
+    if char == "=":
+        answer = eval(equation.get())
+        equation.set(answer)
+    else:
+        eqStr = eqStr + char
+        equation.set(eqStr)
+
+
+entry = Entry(root, font=("Arial", 30), relief=SUNKEN , borderwidth=5, justify=RIGHT)
+entry.grid(row=0, column=0 , columnspan=4, sticky="nsew")
+entry.config(textvariable=equation)
+
+button = Button(root, text="7", font=("Arial", 30), height=1, width=4 , relief=RAISED , borderwidth=6)
+button.grid(row=1, column=0)
+button.bind("<Button-1>", calculator)
+
+button = Button(root, text="8", font=("Arial", 30), height=1, width=4 , relief=RAISED , borderwidth=6)
+button.grid(row=1, column=1)
+button.bind("<Button-1>", calculator)
+
+button = Button(root, text="9", font=("Arial", 30), height=1, width=4 , relief=RAISED , borderwidth=6)
+button.grid(row=1, column=2)
+button.bind("<Button-1>", calculator)
+
+button = Button(root, text="+", font=("Arial", 30), height=1, width=4 , relief=RAISED , borderwidth=6)
+button.grid(row=1, column=3)
+button.bind("<Button-1>", calculator)
+
+#-----------------------------------------------------------------
+
+button = Button(root, text="4", font=("Arial", 30), height=1, width=4 , relief=RAISED , borderwidth=6)
+button.grid(row=2, column=0)
+button.bind("<Button-1>", calculator)
+
+button = Button(root, text="5", font=("Arial", 30), height=1, width=4 , relief=RAISED , borderwidth=6)
+button.grid(row=2, column=1)
+button.bind("<Button-1>", calculator)
+
+button = Button(root, text="6", font=("Arial", 30), height=1, width=4 , relief=RAISED , borderwidth=6)
+button.grid(row=2, column=2)
+button.bind("<Button-1>", calculator)
+
+button = Button(root, text="-", font=("Arial", 30), height=1, width=4 , relief=RAISED , borderwidth=6)
+button.grid(row=2, column=3)
+button.bind("<Button-1>", calculator)
+
+#-----------------------------------------------------------------
+
+button = Button(root, text="1", font=("Arial", 30), height=1, width=4 , relief=RAISED , borderwidth=6)
+button.grid(row=3, column=0)
+button.bind("<Button-1>", calculator)
+
+button = Button(root, text="2", font=("Arial", 30), height=1, width=4 , relief=RAISED , borderwidth=6)
+button.grid(row=3, column=1)
+button.bind("<Button-1>", calculator)
+
+button = Button(root, text="3", font=("Arial", 30), height=1, width=4 , relief=RAISED , borderwidth=6)
+button.grid(row=3, column=2)
+button.bind("<Button-1>", calculator)
+
+button = Button(root, text="*", font=("Arial", 30), height=1, width=4 , relief=RAISED , borderwidth=6)
+button.grid(row=3, column=3)
+button.bind("<Button-1>", calculator)
+
+#-----------------------------------------------------------------
+
+button = Button(root, text=".", font=("Arial", 30), height=1, width=4 , relief=RAISED , borderwidth=6)
+button.grid(row=4, column=0)
+button.bind("<Button-1>", calculator)
+
+button = Button(root, text="0", font=("Arial", 30), height=1, width=4 , relief=RAISED , borderwidth=6)
+button.grid(row=4, column=1)
+button.bind("<Button-1>", calculator)
+
+button = Button(root, text="/", font=("Arial", 30), height=1, width=4 , relief=RAISED , borderwidth=6)
+button.grid(row=4, column=2)
+button.bind("<Button-1>", calculator)
+
+button = Button(root, text="=", font=("Arial", 30), height=1, width=4 , relief=RAISED , borderwidth=6)
+button.grid(row=4, column=3)
+button.bind("<Button-1>", calculator)
+
+root.mainloop()
